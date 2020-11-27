@@ -1,0 +1,271 @@
+nikto 
+---------
+
+Nikto is a powerful assessment tools for finding vulnerabilities in web servers.
+
+Scanning a host
+Nikto -h <Hostname/IP>
+
+Scanning specific ports
+Nikto -h <Hostname/IP> -port <Port Number>,<Port Number>
+
+Maximum scan time
+Nikto -h <Hostname/IP> -maxtime <Number in Seconds>
+
+Scanning duration
+Nikto -h <Hostname/IP> -until
+
+Disable SSL
+Nikto -h <Hostname/IP> -nossl
+
+Force SSL
+Nikto -h <Hostname/IP> -ssl
+
+Disable 404 guessing
+Nikto -h <Hostname/IP> -no404
+
+Ignore negative responses. 302,301
+Nikto -h <Hostname/IP> -IgnoreCode <Code Number>
+
+Update the plugins and databases
+Nikto -update
+
+Specify host header
+Nikto -h <Hostname/IP> -vhost
+
+Output results
+Nikto -h  <Hostname/IP> -output <filename>
+
+Scanning through a proxy
+Nikto -h <Hostname/IP> -useproxy <Proxy IP>
+
+Host authentication
+Nikto -h <Hostname/IP> -id <id:pass> or <id:pass:realm>
+
+Database check
+Nikto -h <Hostname/IP> -dbcheck
+
+Config file
+Nikto -h <Hostname/IP> -config <nikto.conf>
+
+Disable name lookups on IP addresses
+Nikto -h <Hostname/IP> -nolookup
+
+Disable response cache
+Nikto -h <Hostname/IP> -nocache
+
+Disable interactive features
+Nikto -h <Hostname/IP> -nointeractive
+
+Display options
+
+Nikto -h <Hostname/IP> -Display <Option>
+1 Show redirects
+2 Show Cookies
+3 Show 200/OK responses
+4 Show URL requiring authentication
+D Show debug output
+E HTTP Errors
+P Print progress to STDOUT
+S Scrub output of IP and Hostname
+V Verbose output
+
+Evasion Options
+
+Nikto -h <Hostname/IP> -evasion <Option>
+1 Random URI Encoding
+2 Directory Self-Reference /./
+3 Premature URL ending
+4 Prepend long random string
+5 Fake parameter
+6 TAB as request spacer
+7 Change the case of the URL
+8 Used windows directory separator \
+A Use a carriage return (0x0d) as a request spacer
+B  Use binary value (0x0b) as a request spacer
+
+Output File Format
+
+Nikto -h <Hostname/IP> -Format <Option>
+csv       Comma-separated-value
+htm    HTML Format
+msf+  Log to Metaspoloit
+nbe     Nessus NBE
+txt       Plain text
+xml    XML Format
+
+Tuning
+
+Nikto -h <Hostname/IP> -Tuning <Option>
+1   Interesting file
+2   Misconfiguration
+3   Information Disclosure
+4   Injection (XSS/Script/HTML)
+5   Remote File Retrieval – Inside Web Root
+6   Denial of Service
+7   Remote File Retrieval – Server Wide
+8   Command Execution – Remote Shell
+9   SQL Injection
+0   File Upload
+a   Authentication Bypass
+b   Software Identification
+c   Remote Source Inclusion
+x   Reverse Tuning Option
+
+Mutate
+
+Nikto -h <Hostname/IP> -mutate <Option>
+1   Test all files in root directory
+2   Guess for password file names
+3   Enumerate user names via apache
+4   Enumerate user names via cgiwrap
+5   Attempt to brute force sub-domain names
+6   Attempt to guess directory names from a file.
+
+
+
+Plugin List
+-------------------
+Plugin: report_csv
+
+CSV reports - Produces a CSV report.
+Plugin: outdated
+
+Outdated - Checks to see whether the web server is the latest version.
+Plugin: ssl
+
+SSL and cert checks - Perform checks on SSL/Certificates
+Plugin: content_search
+
+Content Search - Search resultant content for interesting strings
+Plugin: drupal
+
+Drupal Specific Tests - Performs a selection of drupal specific tests
+Options:
+0: Flag to tell plugin to enumerate modules
+path: Basic path for modules (can usually be found in page source).
+Plugin: cgi
+
+CGI - Enumerates possible CGI directories.
+Plugin: favicon
+
+Favicon - Checks the web server's favicon against known favicons.
+Plugin: headers
+
+HTTP Headers - Performs various checks against the headers returned from an HTTP request.
+Plugin: report_json
+
+JSON reports - Produces a JSON report.
+Plugin: shellshock
+
+shellshock - Look for the bash 'shellshock' vulnerability.
+Options:
+uri: uri to assess
+Plugin: sitefiles
+
+Site Files - Look for interesting files based on the site's IP/name
+Plugin: negotiate
+
+Negotiate - Checks the mod_negotiation MultiViews.
+Plugin: put_del_test
+
+Put/Delete test - Attempts to upload and delete files through the PUT and DELETE HTTP methods.
+Plugin: report_sqlg
+
+Generic SQL reports - Produces SQL inserts into a generic database.
+Plugin: report_nbe
+
+NBE reports - Produces a NBE report.
+Plugin: cookies
+
+HTTP Cookie Internal IP - Looks for internal IP addresses in cookies returned from an HTTP request.
+Plugin: ms10_070
+
+Determine if a site is vulnerable to MS10-070
+Plugin: fileops
+
+File Operations - Saves results to a text file.
+Plugin: report_html
+
+Report as HTML - Produces an HTML report.
+Plugin: auth
+
+Guess authentication - Attempt to guess authentication realms
+Plugin: dishwasher
+
+dishwasher - Look for the dishwasher directory traversal vulnerability.
+Plugin: dir_traversal
+
+Directory Traversal - Check applications / servers for directory traversal vulnerabilities.
+Plugin: domino
+
+IBM/Lotus Domino Specific Tests - Performs a selection of IBM/Louts Domino specific tests to identify Domino specific files accessible without authentication and the version of the server
+Plugin: httpoptions
+
+HTTP Options - Performs a variety of checks against the HTTP options returned from the server.
+Plugin: report_xml
+
+Report as XML - Produces an XML report.
+Plugin: dictionary
+
+Dictionary attack - Attempts to dictionary attack commonly known directories/files
+Options:
+method: Method to use to enumerate.
+dictionary: Dictionary of paths to look for.
+Plugin: robots
+
+Robots - Checks whether there's anything within the robots.txt file and analyses it for other paths to pass to other scripts.
+Options:
+nocheck: Flag to disable checking entries in robots file.
+Plugin: msgs
+
+Server Messages - Checks the server version against known issues.
+Plugin: paths
+
+Path Search - Look at link paths to help populate variables
+Plugin: parked
+
+Parked Detection - Checks to see whether the host is parked at a registrar or ad location.
+Plugin: strutshock
+
+strutshock - Look for the 'strutshock' vulnerability.
+Plugin: apache_expect_xss
+
+Apache Expect XSS - Checks whether the web servers has a cross-site scripting vulnerability through the Expect: HTTP header
+Plugin: report_text
+
+Text reports - Produces a text report.
+Plugin: siebel
+
+Siebel Checks - Performs a set of checks against an installed Siebel application
+Options:
+enumerate: Flag to indicate whether we shall attempt to enumerate known apps
+applications: List of applications
+application: Application to attack
+languages: List of Languages
+Plugin: apacheusers
+
+Apache Users - Checks whether we can enumerate usernames directly from the web server
+Options:
+enumerate: Flag to indicate whether to attempt to enumerate users
+cgiwrap: User cgi-bin/cgiwrap to enumerate
+dictionary: Filename for a dictionary file of users
+size: Maximum size of username if bruteforcing
+home: Look for ~user to enumerate
+Plugin: embedded
+
+Embedded Detection - Checks to see whether the host is an embedded server.
+Plugin: clientaccesspolicy
+
+clientaccesspolicy.xml - Checks whether a client access file exists, and if it contains a wildcard entry.
+Plugin: tests
+
+Nikto Tests - Test host with the standard Nikto tests
+Options:
+tids: A range of testids that will only be run
+report: Report a status after the passed number of tests
+passfiles: Flag to indicate whether to check for common password files
+all: Flag to indicate whether to check all files with all directories
+Plugin: multiple_index
+
+Multiple Index - Checks for multiple index files
