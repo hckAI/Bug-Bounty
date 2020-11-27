@@ -87,16 +87,10 @@ s3 MODE
 
 gobuster s3 -w bucket-names.txt
 
-
 -----------
 Fuzzing MODE
 
 gobuster fuzz -u https://example.com?FUZZ=test -w parameter-names.txt
 
-
-
-
 '''''''''''''''''
 
-
-https://redteamtutorials.com/2018/11/19/gobuster-cheatsheet/s
