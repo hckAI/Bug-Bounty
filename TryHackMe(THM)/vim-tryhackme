@@ -1,0 +1,167 @@
+1. How do we enter "INSERT" mode?
+	`
+	 i
+	`
+
+2. How do we start entering text into our new Vim document?
+	`
+	typing
+	`
+
+3. How do we return to command mode?
+	`
+	esc
+	`
+
+4. How do we move the cursor left?
+	`
+	h
+	`
+
+5. How do we move the cursor right?
+	`
+	l
+	`
+
+6. How do we move the cursor up?
+	`
+	k
+	`
+
+7. How do we move the cursor down?
+	`
+	j
+	`
+
+8. How do we jump to the start of a word?
+	`
+	w
+	`
+
+9. How do we jump to the end of a word?
+	`
+	e
+	`
+
+10. How do we insert (before the cursor)   
+	`
+	i
+	`
+
+11. How do we insert (at the beginning of the line?) 
+	`
+	I
+	`
+
+12. How do we append (after the cursor)
+	`
+	a
+	`
+
+13. How do we append (at the end of the line)
+	`
+	A
+	`
+
+14. How do we make a new line under the current line? 
+	`
+	o
+	`
+
+15. How do we write the file, but don't exit?
+	`
+	:w
+	`
+
+16. How do we write the file, but don't exit- as root?
+	`
+	:w !sudo tee%
+	`
+
+17. How do we write and quit?
+	`
+	:wq
+	`
+
+18. How do we quit?
+	`
+	:q
+	`
+
+19. How do we force quit?
+	`
+	:q!
+	`
+20. How do we save and quit, for all active tabs?
+	`
+	:wqa
+	`
+21. How do we copy a line?
+	`
+	yy
+	`
+22. how do we copy 2 lines?
+	`
+	2yy
+	`
+23. How do we copy to the end of the line?
+	`
+	y$
+	`
+24. How do we paste the clipboard contents after the cursor?
+	`
+	p
+	`
+25. How do we paste the clipboard contents before the cursor?
+	`
+	P
+	`
+26.	How do we cut a line?
+	`
+	dd
+	`
+
+27. How do we cut two lines?
+	`
+	2dd
+	`
+
+28. How do we cut to the end of the line?
+	`
+	D
+	`
+
+29. How do we cut a character?
+	`
+	x
+	`
+
+30. How do we search forwards for a pattern (use "pattern" for your answer)
+	`
+	/patter
+	`
+
+31. How do we search backwards for a pattern (use "pattern" for your answer)
+	`
+	?patter
+	`
+
+32. How do we repeat this search in the same direction?
+	`
+	n
+	`
+
+33. How do we repeat this search in the opposite direction?
+	`
+	N
+	`
+
+34. How do we search for "old" and replace it with "new"
+	`
+	:%s/old/new/g
+	`
+
+35. How do we use "grep" to search for a pattern in multiple files?
+	`
+	:vimgrep
+	`
